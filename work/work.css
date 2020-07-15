@@ -1,0 +1,37 @@
+.main {
+  display: grid;
+  max-width: 80vw;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 4rem 20rem 1fr 2fr 4rem;
+  grid-template-areas:
+    'header header header header'
+    'name name image image'
+    'bio bio image image'
+    'links links image image'
+    'footer footer footer footer';
+}
+
+.main__name {
+  align-self: end;
+}
+
+.main__menu {
+  align-self: start;
+}
+
+.main__bio {
+  grid-area: bio;
+}
+
+.main__bio__link {
+  color: black;
+  font-size: 3rem;
+}
+
+.main__bio__text {
+  font-size: 2rem;
+}

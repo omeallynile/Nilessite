@@ -1,0 +1,135 @@
+/* Site Configuration */
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans';
+  font-size: 10px;
+  /* border: 1px solid red; */
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Colors */
+
+/* MAIN CONTENT */
+.main {
+  display: grid;
+  max-width: 80vw;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  grid-template-columns: 1fr 1fr 2fr 1fr;
+  grid-template-rows: 4rem 1fr 1fr 4rem;
+  grid-template-areas:
+    'header header header header'
+    'name name image image'
+    'links links image image'
+    'footer footer footer footer';
+}
+
+.main__toggle {
+  grid-area: header;
+  justify-self: end;
+}
+
+.main__toggle__icon {
+  margin: 0;
+  padding-top: 5rem;
+  font-size: 4rem;
+}
+
+.main__name {
+  grid-area: name;
+  justify-self: start;
+  align-self: center;
+}
+
+.main__name__name {
+  color: black;
+  font-size: 6rem;
+  padding: 0;
+  margin: 0;
+}
+
+.main__name__location {
+  font-size: 2rem;
+}
+
+.main__menu {
+  grid-area: links;
+  justify-self: start;
+  align-self: center;
+  overflow: hidden;
+  scrollbar-width: none;
+}
+
+.main__menu__items {
+  overflow-y: scroll;
+}
+
+.main__menu__item {
+  font-size: 4rem;
+  padding: 0.5rem 0 0.5rem 0;
+  color: black;
+}
+
+.main__menu__item:hover {
+  color: blue;
+}
+
+.main__image {
+  grid-area: image;
+  justify-self: center;
+  align-self: center;
+}
+
+.main__image__image {
+  width: 40vw;
+  height: 50vh;
+  background-color: grey;
+}
+
+/* Animations */
+
+.transition--fade {
+  opacity: 1;
+  transition: 500ms;
+  transform: translateX(0);
+  transform-origin: left;
+}
+
+html.is-animating .transition--fade {
+  opacity: 1;
+  transform: translateX(100%);
+}
+
+html.is-leaving .transition--fade {
+  opacity: 0;
+  transform: translateX(0);
+}
+
+.transition-swipe {
+  transition: 500ms;
+  transform: translateY(0);
+}
+
+html.is-animating .transition--swipe {
+  transform: translateY(100px);
+}
+
+/* Media Queries - MAIN CONTENT */
+
+/* FOOTER */
+.main__footer {
+  grid-area: footer;
+  z-index: 10;
+  display: grid;
+  justify-self: center;
+  align-items: center;
+}
