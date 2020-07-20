@@ -1,0 +1,147 @@
+.main {
+  display: grid;
+  max-width: 80vw;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 2fr 1fr 0.1fr;
+  grid-template-rows: 1fr 0.25fr 1fr 1fr 0.25fr;
+  grid-template-areas:
+    'name    name   .      .      toggle'
+    'cont    cont   image  image  .'
+    'cont    cont   image  image  .'
+    'cont    cont   image  image  .'
+    'footer  footer footer footer footer';
+}
+
+/* Media Queries */
+/* MOBILE */
+@media (min-device-width: 0px) and (max-device-width: 480px) {
+  .main {
+    overflow: auto;
+    scrollbar-width: none;
+    grid-template-columns: 10fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      'name   toggle'
+      'cont   cont'
+      'footer footer';
+  }
+  .main__name {
+    margin: 0;
+  }
+  .main__name__name {
+    margin: 0;
+    padding: 0;
+    font-size: 3rem;
+  }
+  .main__toggle {
+    margin: 5rem 0;
+    padding: 0;
+  }
+  .main__content {
+    grid-template-rows: auto 2fr 3fr !important;
+  }
+  .main__content__nav__link {
+    font-size: 2rem !important;
+  }
+  .main__content__menu__item {
+    margin: 3rem 0;
+    font-size: 3rem !important;
+    color: red;
+  }
+}
+
+/* IPAD */
+@media (min-device-width: 480px) and (max-width: 768px) {
+  .main {
+    height: 100vh;
+    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      'name toggle'
+      'cont image'
+      'footer footer' !important;
+  }
+  .main__toggle {
+    margin: 0;
+    padding: 9rem 0 0 0;
+    justify-self: end;
+    align-self: start;
+  }
+
+  .main__toggle__icon {
+    margin: 0;
+    padding-right: 0rem;
+  }
+}
+
+.main__content {
+  grid-area: cont;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr 3fr;
+  grid-template-areas:
+    'nav'
+    'cont'
+    'menu';
+}
+
+.main__content__nav {
+  grid-area: nav;
+  display: grid;
+  grid-template-columns: 0.5fr 8fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'link current'
+    'link current';
+}
+
+.main__content__nav__link__item {
+  color: black;
+  margin: 0.2rem;
+  font-size: 5rem;
+  font-weight: normal;
+}
+
+.main__content__nav__link {
+  grid-area: link;
+  justify-self: start;
+  align-self: center;
+}
+
+.main__content__nav__current {
+  grid-area: current;
+  justify-self: start;
+  align-self: center;
+}
+
+.main__content__nav__current__item {
+  font-size: 2rem;
+  font-weight: normal;
+}
+
+.main__content__bio {
+  grid-area: cont;
+}
+
+.main__content__bio__text {
+  font-size: 1.5rem;
+}
+
+.main__content__menu {
+  grid-area: menu;
+}
+
+.main__content__menu__item {
+  font-size: 4rem;
+  font-weight: normal;
+  padding: 0.5rem 0 0.5rem 0;
+  color: black;
+}
+
+.main__content__menu__item:hover {
+  color: blue;
+}
