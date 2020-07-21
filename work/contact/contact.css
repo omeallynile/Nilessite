@@ -8,7 +8,7 @@
   grid-template-columns: 1fr 1fr 2fr 1fr 0.1fr;
   grid-template-rows: 1fr 0.25fr 1fr 1fr 0.25fr;
   grid-template-areas:
-    'name    name   .      .      toggle'
+    'name    name   name      .      toggle'
     'cont    cont   image  image  .'
     'cont    cont   image  image  .'
     'cont    cont   image  image  .'
@@ -17,35 +17,33 @@
 
 .main__content {
   grid-area: cont;
-}
-
-.main__content {
-  grid-area: cont;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr 3fr;
+  grid-template-rows: 0.25fr 5fr;
   grid-template-areas:
     'nav'
-    'cont'
-    'list';
+    'cont';
 }
 
 .main__content__nav {
   grid-area: nav;
   display: grid;
-  overflow: visible;
   grid-template-columns: 0.5fr 8fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    'link current'
+    'link previous'
     'link current';
 }
 
 .main__content__nav__link__item {
   color: black;
-  margin: 0.2rem;
+  margin: 0;
   font-size: 5rem;
   font-weight: normal;
+}
+
+.main__content__nav__link__item:hover {
+  color: var(--purple);
 }
 
 .main__content__nav__link {
@@ -54,115 +52,107 @@
   align-self: center;
 }
 
+.main__content__nav__previous {
+  grid-area: previous;
+  justify-self: start;
+  align-self: end;
+}
+
+.main__content__nav__previous__item {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: normal;
+}
 .main__content__nav__current {
   grid-area: current;
   justify-self: start;
-  align-self: center;
+  align-self: start;
 }
 
 .main__content__nav__current__item {
+  margin: 0;
   font-size: 2rem;
   font-weight: normal;
 }
 
-.main__content__bio {
+.main__content__text {
   grid-area: cont;
 }
 
-.main__content__bio__text {
-  font-size: 1.5rem;
-}
-
-.main__content__menu {
-  grid-area: list;
-}
-
-.main__content__menu__item {
-  margin: 0;
-  font-size: 4rem;
+.main__content__text__h3 {
+  font-size: 3rem;
   font-weight: normal;
-  padding: 0.5rem 0 0.5rem 0;
-  color: black;
 }
-.main__content__menu__item__sub {
+
+.main__content__text__sub {
   font-size: 2rem;
-  font-weight: normal;
 }
 
-.main__content__menu__item:hover {
-  color: blue;
+.main__content__text__email {
+  font-size: 2rem;
 }
+
 /* MEDIA Queries */
-/*Mobile */
+/* Mobile */
 @media (min-width: 0px) and (max-width: 480px) {
   .main {
-    overflow: auto;
-    scrollbar-width: none;
-    grid-template-columns: 10fr 1fr;
-    grid-template-rows: 1fr 5fr 1fr;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: auto auto auto;
     grid-template-areas:
       'name   toggle'
+      'cont   cont'
+      'cont   cont'
       'cont   cont'
       'footer footer';
   }
   .main__name {
+    justify-self: start;
+    align-self: start;
     margin: 0;
   }
   .main__name__name {
-    margin: 0;
+    margin: 3rem 0 0 0;
     padding: 0;
     font-size: 3rem;
   }
   .main__toggle {
-    align-self: center;
-    padding: 0 0 1em 0;
+    margin: 3rem 0 0 0;
+    padding: 0;
   }
 
   .main__content {
-    grid-template-rows: 1fr 4fr;
-    grid-template-areas:
-      'nav'
-      'list';
-    max-height: 40em;
+    grid-template-rows: auto 2fr 3fr !important;
   }
-
   .main__content__nav__link {
     font-size: 2rem !important;
   }
-
-  .main__content__menu {
-    max-height: 200px;
+  .main__content__text__h3 {
+    font-size: 2rem !important;
   }
-  .main__content__menu__item {
-    margin: 0rem 0;
+  .main__content__text__sub {
     font-size: 1.5rem !important;
   }
-  .main__content__menu__item__sub {
-    font-size: 1rem;
+  .main__content__text__email {
+    font-size: 1.5rem !important;
+  }
+  .main__content__nav__previous {
+    margin: 0 0 0 1rem;
+  }
+  .main__content__nav__current {
+    margin: 0 0 0 1rem;
   }
 }
 
-/* IPAD */
-@media (min-device-width: 480px) and (max-width: 768px) {
-  .main {
-    height: 100vh;
-    gap: 2rem;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas:
-      'name toggle'
-      'cont image'
-      'footer footer' !important;
+/* Tablet */
+@media (min-width: 768px) {
+  .main{
+    grid-template-areas: ;
   }
-  .main__toggle {
-    margin: 0;
-    padding: 9rem 0 0 0;
-    justify-self: end;
-    align-self: start;
+  .main__content__nav__previous {
+    margin: 0 0 0 1rem;
   }
-
-  .main__toggle__icon {
-    margin: 0;
-    padding-right: 0rem;
+}
+  .main__content__nav__current {
+    margin: 0 0 0 1rem;
   }
 }
