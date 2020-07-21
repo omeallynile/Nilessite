@@ -146,6 +146,8 @@ html.is-animating .transition--swipe {
 }
 
 .main__image__image {
+  background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
+  background-size: cover;
   width: 40vw;
   height: 50vh;
   background-color: grey;
@@ -162,7 +164,7 @@ html.is-animating .transition--swipe {
 @media (max-width: 480px) {
   .main {
     max-width: 80vw;
-    grid-template-columns: 1fr 0.025fr;
+    grid-template-columns: 10fr 0.025fr;
     grid-template-rows: 0.025fr 1fr 3fr 1fr;
     grid-template-areas:
       '.      toggle'

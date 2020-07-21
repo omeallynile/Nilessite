@@ -7,13 +7,16 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../main.css">
   <link rel="stylesheet" href="./work.css">
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/swup/2.0.11/swup.min.js"></script>
-  <script defer src="../swup.js"> </script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
   <title>Nile O'Meally</title>
 </head>
 
 <body>
-  <div id="swup" class="main">
+  <div class="bgimage bgimageshader">
+
+  </div>
+  <div class="main">
     <div id="main__toggle" class="main__toggle">
       <p class="main__toggle__icon">
         <i class="fa fa-moon-o" aria-hidden="true"></i></p>
@@ -29,7 +32,7 @@
     <div class="main__content">
       <div id="main__content__nav" class="main__content__nav">
         <div class="main__content__nav__link">
-          <a class="main__content__nav__link" href="../index.html">
+          <a class="main__content__nav__link animsition-link" href="../index.html">
             <h2 class="main__content__nav__link__item">
               <i class="fa fa-angle-left" aria-hidden="true"></i>
             </h2>
@@ -74,6 +77,32 @@
 
     </div>
   </div>
+  <script>
+    $(document).ready(function () {
+      $(".animsition").animsition({
+        inClass: 'fade-in',
+        outClass: 'fade-out',
+        inDuration: 1500,
+        outDuration: 800,
+        linkElement: '.animsition-link',
+        // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
+        loading: true,
+        loadingParentElement: 'body', //animsition wrapper element
+        loadingClass: 'animsition-loading',
+        loadingInner: '', // e.g '<img src="loading.svg" />'
+        timeout: false,
+        timeoutCountdown: 5000,
+        onLoadEvent: true,
+        browser: ['animation-duration', '-webkit-animation-duration'],
+        // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+        // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+        overlay: false,
+        overlayClass: 'animsition-overlay-slide',
+        overlayParentElement: 'body',
+        transition: function (url) { window.location.href = url; }
+      });
+    });
+  </script>
 </body>
 
 </html>
