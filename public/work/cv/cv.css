@@ -44,11 +44,10 @@
 }
 
 .main__content__nav__link__item {
+  color: black;
   margin: 0;
-  padding: 0;
   font-size: 5rem;
   font-weight: normal;
-  color: black;
 }
 
 .main__content__nav__previous {
@@ -59,12 +58,8 @@
 
 .main__content__nav__previous__text {
   margin: 0;
-  padding: 0;
   font-size: 1rem;
   font-weight: normal;
-  grid-area: previous;
-  justify-self: start;
-  align-self: end;
 }
 
 .main__content__nav__current {
@@ -75,12 +70,8 @@
 
 .main__content__nav__currrent__text {
   margin: 0;
-  padding: 0;
-  grid-area: current;
   font-size: 2rem;
   font-weight: normal;
-  justify-self: start;
-  align-self: start;
 }
 
 .main__content__nav__download {
@@ -148,6 +139,16 @@
     padding: 0;
   }
 
+  .main__content__nav__previous {
+    margin: 0 0 0 1rem;
+  }
+  .main__content__nav__current {
+    margin: 0 0 0 1rem;
+  }
+}
+/* TABLET size */
+
+@media (max-width: 768px) {
   .main__content__nav__previous {
     margin: 0 0 0 1rem;
   }

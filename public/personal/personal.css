@@ -5,12 +5,12 @@
   overflow: visible;
   gap: 1rem;
   grid-template-columns: 2fr 1fr 3fr 1fr 0.1fr;
-  grid-template-rows: 0.1fr 0.25fr 1fr 1fr 0.25fr;
+  grid-template-rows: 0.1fr 0.25fr 1fr 1fr 0.12fr;
   grid-template-areas:
     'name    name   name   .      toggle'
     'cont    cont   image  image  .'
     'cont    cont   image  image  .'
-    'cont    cont   image  image  .'
+    'cont    cont   .      .      .'
     'footer  footer footer footer footer';
 }
 
@@ -21,8 +21,6 @@
 .main__content {
   grid-area: cont;
   display: grid;
-  overflow: auto;
-
   grid-template-columns: 1fr;
   grid-template-rows: auto 0.5fr 3fr;
   grid-template-areas:
@@ -97,14 +95,11 @@
   color: black;
 }
 
-.main__content__menu__item:hover:after {
+.main__content__menu__item:hover {
   display: block;
-  color: blue;
-  font-size: 2rem;
   content: '';
-  border: 0.5rem solid #7000ff;
-  border-radius: 1rem;
-  opacity: 1;
+  border-bottom: 0.5rem solid #7000ff;
+  /* border-radius: 1rem; */
 }
 
 .main__content__menu__item:hover {
@@ -131,6 +126,7 @@
 }
 
 /* Media Queries */
+/* Mobile */
 @media (min-width: 0) and (max-width: 480px) {
   .bgimage {
     position: fixed;
@@ -139,7 +135,7 @@
     top: 0;
     left: 0;
     z-index: -1;
-    background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
+    /* background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'); */
     background-size: cover;
     filter: blur(8px) grayscale(100%);
   }
@@ -147,12 +143,13 @@
     overflow: auto;
     scrollbar-width: none;
     grid-template-columns: 10fr 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: 1fr 5fr 0.5fr;
     grid-template-areas:
       'name   toggle'
       'cont   cont'
       'footer footer';
   }
+
   .main__name {
     margin: 0;
   }
@@ -167,7 +164,11 @@
   }
 
   .main__content {
-    max-height: 40em;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      'nav'
+      'cont'
+      'menu';
   }
 
   .main__content__bio {
@@ -188,6 +189,10 @@
 
   .main__content__menu__item__sub {
     font-size: 1rem;
+  }
+  .main__footer {
+    position: sticky;
+    bottom: 0;
   }
 }
 
@@ -213,5 +218,14 @@
   .main__toggle__icon {
     margin: 0;
     padding-right: 0rem;
+  }
+
+  .main__content__menu__item {
+    font-size: 2rem;
+    padding: 0.25rem 0 0.25rem 0;
+  }
+
+  .main__content__menu__item__sub {
+    font-size: 1rem;
   }
 }

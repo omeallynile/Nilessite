@@ -17,50 +17,68 @@
 
 .main__content {
   grid-area: cont;
+}
+
+.main__content {
+  grid-area: cont;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr 3fr;
+  grid-template-rows: auto 1fr;
   grid-template-areas:
     'nav'
-    'cont'
-    'menu';
+    'cont';
 }
 
 .main__content__nav {
   grid-area: nav;
   display: grid;
+  overflow: visible;
   grid-template-columns: 0.5fr 8fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    'link current'
+    'link previous'
     'link current';
 }
 
 .main__content__nav__link__item {
-  position: relative;
   color: black;
-  margin: 0;
+  margin: 0.2rem;
   font-size: 5rem;
   font-weight: normal;
 }
-
 .main__content__nav__link__item:hover {
   color: var(--purple);
 }
 
 .main__content__nav__link {
+  padding: 0;
+  margin: 0;
   grid-area: link;
   justify-self: start;
   align-self: center;
 }
 
+.main__content__nav__previous {
+  grid-area: previous;
+  justify-self: start;
+  align-self: end;
+}
+
+.main__content__nav__previous__item {
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
 .main__content__nav__current {
   grid-area: current;
   justify-self: start;
-  align-self: center;
+  align-self: start;
 }
 
 .main__content__nav__current__item {
+  margin: 0;
   font-size: 2rem;
   font-weight: normal;
 }
@@ -74,92 +92,82 @@
 }
 
 .main__content__menu {
-  grid-area: menu;
+  grid-area: cont;
+  align-self: start;
+  justify-self: start;
 }
 
 .main__content__menu__item {
-  position: relative;
+  margin: 0;
   font-size: 4rem;
   font-weight: normal;
   padding: 0.5rem 0 0.5rem 0;
   color: black;
 }
-
-.main__content__menu__item:hover:after {
-  display: block;
-  color: blue;
+.main__content__menu__item__sub {
   font-size: 2rem;
-  content: '';
-  border: 0.5rem solid #7000ff;
-  border-radius: 1rem;
-  opacity: 1;
+  font-weight: normal;
 }
 
-/* Media Queries */
-/* MOBILE */
-@media (min-device-width: 0px) and (max-device-width: 480px) {
-  .bgimage {
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
-    background-size: cover;
-    filter: opacity(75%);
-  }
+.main__content__menu__item:hover {
+  display: block;
+  content: '';
+  border-bottom: 0.5rem solid #7000ff;
+  /* border-radius: 1rem; */
+}
+/* MEDIA Queries */
+/*Mobile */
+@media (min-width: 0px) and (max-width: 480px) {
   .main {
     overflow: auto;
     scrollbar-width: none;
     grid-template-columns: 10fr 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: 1fr 5fr 1fr;
     grid-template-areas:
       'name   toggle'
       'cont   cont'
       'footer footer';
   }
   .main__name {
-    justify-self: start;
-    align-self: start;
     margin: 0;
   }
   .main__name__name {
-    margin: 3rem 0 0 0;
+    margin: 0;
     padding: 0;
     font-size: 3rem;
   }
   .main__toggle {
-    margin: 3rem 0 0 0;
-    padding: 0;
+    align-self: center;
+    padding: 0 0 1em 0;
   }
+
   .main__content {
-    grid-template-rows: auto 2fr 3fr !important;
+    grid-template-rows: 1fr 4fr;
+    grid-template-areas:
+      'nav'
+      'list';
+    max-height: 40em;
   }
+
   .main__content__nav__link {
     font-size: 2rem !important;
   }
+
+  .main__content__menu {
+    max-height: 200px;
+  }
   .main__content__menu__item {
-    margin: 3rem 0;
-    font-size: 3rem !important;
+    margin: 0rem 0;
+    font-size: 1.5rem !important;
+  }
+  .main__content__menu__item__sub {
+    font-size: 1rem;
   }
 }
 
 /* IPAD */
 @media (min-device-width: 480px) and (max-width: 768px) {
-  .bgimage {
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80');
-    background-size: cover;
-    filter: blur(8px) grayscale(80%);
-  }
   .main {
-    z-index: 10;
     height: 100vh;
     gap: 2rem;
     grid-template-columns: 1fr 1fr;
@@ -180,7 +188,12 @@
     margin: 0;
     padding-right: 0rem;
   }
-  .main__image {
-    align-self: start;
+
+  .main__content__menu__item {
+    font-size: 2rem;
+  }
+
+  .main__content__menu__item__sub {
+    font-size: 1rem;
   }
 }
