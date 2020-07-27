@@ -1,0 +1,8 @@
+{
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}",
+    ".vscode{,/**}"
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/b4afea5b-fd26-462f-8ff0-cbb0aeb05575/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/niles-personal-website",
+  "appService.deploySubpath": "."
+}
