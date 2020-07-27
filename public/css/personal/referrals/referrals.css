@@ -107,6 +107,7 @@
 .main__content__menu__item__sub {
   font-size: 2rem;
   font-weight: normal;
+  color: black;
 }
 
 .main__content__menu__item:hover {
@@ -118,6 +119,8 @@
 
 .main__image__image {
   background-image: url('/images/personal.jpg');
+  height: 60vh;
+  width: 40vw;
 }
 /* MEDIA Queries */
 /*Mobile */
