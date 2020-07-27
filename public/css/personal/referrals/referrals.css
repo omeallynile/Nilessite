@@ -1,16 +1,17 @@
 .main {
   display: grid;
   max-width: 80vw;
+  height: 100vh;
   margin: 0 auto;
-  overflow: visible;
+  overflow: hidden;
   gap: 1rem;
-  grid-template-columns: 2fr 1fr 3fr 1fr 0.1fr;
-  grid-template-rows: 0.1fr 0.25fr 1fr 1fr 0.12fr;
+  grid-template-columns: 1fr 1fr 2fr 1fr 0.1fr;
+  grid-template-rows: 1fr 0.25fr 1fr 1fr 0.25fr;
   grid-template-areas:
     'name    name   name   .      toggle'
     'cont    cont   image  image  .'
     'cont    cont   image  image  .'
-    'cont    cont   .      .      .'
+    'cont    cont   image  image  .'
     'footer  footer footer footer footer';
 }
 
@@ -22,11 +23,10 @@
   grid-area: cont;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 0.5fr 3fr;
+  grid-template-rows: auto 1fr;
   grid-template-areas:
     'nav'
-    'cont'
-    'menu';
+    'cont';
 }
 
 .main__content__nav {
@@ -36,7 +36,7 @@
   grid-template-columns: 0.5fr 8fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    'link current'
+    'link previous'
     'link current';
 }
 
@@ -51,18 +51,34 @@
 }
 
 .main__content__nav__link {
+  padding: 0;
+  margin: 0;
   grid-area: link;
   justify-self: start;
   align-self: center;
 }
 
+.main__content__nav__previous {
+  grid-area: previous;
+  justify-self: start;
+  align-self: end;
+}
+
+.main__content__nav__previous__item {
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
 .main__content__nav__current {
   grid-area: current;
   justify-self: start;
-  align-self: center;
+  align-self: start;
 }
 
 .main__content__nav__current__item {
+  margin: 0;
   font-size: 2rem;
   font-weight: normal;
 }
@@ -76,13 +92,12 @@
 }
 
 .main__content__menu {
-  scrollbar-width: none;
-  overflow-y: scroll;
-  grid-area: menu;
+  grid-area: cont;
+  align-self: start;
+  justify-self: start;
 }
 
 .main__content__menu__item {
-  position: relative;
   margin: 0;
   font-size: 4rem;
   font-weight: normal;
@@ -92,7 +107,6 @@
 .main__content__menu__item__sub {
   font-size: 2rem;
   font-weight: normal;
-  color: black;
 }
 
 .main__content__menu__item:hover {
@@ -102,54 +116,22 @@
   /* border-radius: 1rem; */
 }
 
-.main__content__menu__item:hover {
-  display: fixed;
+.main__image__image {
+  background-image: url('/images/personal.jpg');
 }
-
-.main__content__menu__qrcode {
-  display: none;
-  background: #c8c8c8;
-  margin-left: 28px;
-  padding: 10px;
-  position: absolute;
-  z-index: 1000;
-  width: 200px;
-  height: 100px;
-}
-.main__image {
-  justify-self: end;
-}
-
-.qrcode {
-  width: 200px;
-  height: 200px;
-}
-
-/* Media Queries */
-/* Mobile */
-@media (min-width: 0) and (max-width: 480px) {
-  .bgimage {
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    /* background: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'); */
-    background-size: cover;
-    filter: blur(8px) grayscale(100%);
-  }
+/* MEDIA Queries */
+/*Mobile */
+@media (min-width: 0px) and (max-width: 480px) {
   .main {
     overflow: auto;
     scrollbar-width: none;
     grid-template-columns: 10fr 1fr;
-    grid-template-rows: 1fr 5fr 0.5fr;
+    grid-template-rows: 1fr 5fr 1fr;
     grid-template-areas:
       'name   toggle'
       'cont   cont'
       'footer footer';
   }
-
   .main__name {
     margin: 0;
   }
@@ -164,15 +146,11 @@
   }
 
   .main__content {
-    grid-template-rows: auto auto auto;
+    grid-template-rows: 1fr 4fr;
     grid-template-areas:
       'nav'
-      'cont'
-      'menu';
-  }
-
-  .main__content__bio {
-    font-size: 1.5rem;
+      'list';
+    max-height: 40em;
   }
 
   .main__content__nav__link {
@@ -183,16 +161,11 @@
     max-height: 200px;
   }
   .main__content__menu__item {
-    margin: 0rem 0;
+    margin: 0;
     font-size: 1.5rem !important;
   }
-
   .main__content__menu__item__sub {
     font-size: 1rem;
-  }
-  .main__footer {
-    position: sticky;
-    bottom: 0;
   }
 }
 
@@ -222,10 +195,16 @@
 
   .main__content__menu__item {
     font-size: 2rem;
-    padding: 0.25rem 0 0.25rem 0;
   }
 
   .main__content__menu__item__sub {
     font-size: 1rem;
+  }
+
+  .main__content__nav__previous {
+    margin-left: 0.5rem;
+  }
+  .main__content__nav__current {
+    margin-left: 0.5rem;
   }
 }
