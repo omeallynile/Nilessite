@@ -15,6 +15,10 @@ a {
   text-decoration: none;
 }
 
+div {
+  border: none;
+}
+
 /* Colors */
 
 :root {
@@ -140,15 +144,19 @@ html.is-animating .transition--swipe {
   grid-area: image;
   justify-self: center;
   align-self: start;
+  background-color: transparent;
 }
 
 .main__image__image {
-  background: url('/images/work.jpg');
+  background: url('/images/work.jpg') no-repeat 0 0;
   background-size: cover;
   background-repeat: no-repeat;
+  border: none;
+  content: '';
+  border: none;
   height: 45vh;
   width: 40vw;
-  background-color: grey;
+  /* background-color: grey; */
 }
 /* FOOTER */
 .main__footer {

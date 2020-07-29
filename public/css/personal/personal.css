@@ -140,7 +140,7 @@
     width: 100vw;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 0;
     background: url('/images/personal.jpg');
     background-size: cover;
     filter: blur(8px) opacity(25%);
@@ -149,7 +149,7 @@
     /* overflow: visible; */
     scrollbar-width: none;
     grid-template-columns: 10fr 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: 3fr 12fr 1fr;
     grid-template-areas:
       'name   toggle'
       'cont   cont'
@@ -170,7 +170,7 @@
   }
 
   .main__content {
-    grid-template-rows: auto auto auto;
+    grid-template-rows: 1fr 1fr 5fr;
     grid-template-areas:
       'nav'
       'cont'
