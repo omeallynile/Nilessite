@@ -17,7 +17,7 @@
   <div id="swup" class="main ">
     <div id="main__toggle" class="main__toggle">
       <p class="main__toggle__icon">
-        <i class="fa fa-moon-o" aria-hidden="true"></i></p>
+        <i class="fa fa-moon-o main__toggle__button" aria-hidden="true"></i></p>
     </div>
     <div id="main__name" class="main__name">
       <a href="/">
@@ -33,9 +33,9 @@
       <div id="main__content__nav" class="main__content__nav">
         <div class="main__content__nav__link">
           <a href="/work">
-            <p class="main__content__nav__link__item">
+            <h2 class="main__content__nav__link__item">
               <i class="fa fa-angle-left" aria-hidden="true"></i>
-            </p>
+            </h2>
           </a>
         </div>
         <div class="main__content__nav__previous">
@@ -63,9 +63,26 @@
       <div id="main__footer__text" class="main__footer__text">
         <p>Developed by <a href="#" style="text-decoration:none; color:black;">Alex Harvey</a></p>
       </div>
-
-
     </div>
+    <script>
+      // Select the button
+      const btn = document.querySelector('.main__toggle__button');
+      // Listen for a click on the button
+      btn.addEventListener('click', function () {
+        // change moon to sun
+        btn.classList.toggle('fa-moon-o')
+        btn.classList.toggle('fa-sun-o')
+        // Then toggle (add/remove) the .dark-theme class to the body
+        document.body.classList.toggle('dark-mode');
+        // toggle darkmode on main-content
+        const main = document.querySelector('.main')
+        main.classList.toggle('dark-mode');
+        const a = document.querySelectorAll('a')
+        a.forEach(item => item.classList.toggle('dark-mode'))
+        const h2 = document.querySelectorAll('h2')
+        h2.forEach(h2 => h2.classList.toggle('dark-mode'))
+      })
+    </script>
 </body>
 
 </html>

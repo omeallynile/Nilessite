@@ -7,8 +7,6 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/main.css">
   <link rel="stylesheet" href="/css/personal/referrals/referrals.css">
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/swup/2.0.11/swup.min.js"></script>
-  <script defer src="../swup.js"> </script>
   <title>Nile O'Meally</title>
 </head>
 
@@ -17,7 +15,7 @@
   <div id="swup" class="main ">
     <div id="main__toggle" class="main__toggle">
       <p class="main__toggle__icon">
-        <i class="fa fa-moon-o" aria-hidden="true"></i></p>
+        <i class="fa fa-moon-o main__toggle__button" aria-hidden="true"></i></p>
     </div>
     <div id="main__name" class="main__name">
       <a href="/" class="">
@@ -75,6 +73,26 @@
       </div>
     </div>
   </div>
+  <script>
+    // Select the button
+    const btn = document.querySelector('.main__toggle__button');
+    // Listen for a click on the button
+    btn.addEventListener('click', function () {
+      // change moon to sun
+      btn.classList.toggle('fa-moon-o')
+      btn.classList.toggle('fa-sun-o')
+      // Then toggle (add/remove) the .dark-theme class to the body
+      document.body.classList.toggle('dark-mode');
+      // toggle darkmode on main-content
+      const main = document.querySelector('.main')
+      main.classList.toggle('dark-mode');
+      const a = document.querySelectorAll('a')
+      a.forEach(item => item.classList.toggle('dark-mode'))
+      const h2 = document.querySelectorAll('h2')
+      h2.forEach(h2 => h2.classList.toggle('dark-mode'))
+      const p = document.querySelectorAll('p').forEach(p => p.classList.toggle('dark-mode'))
+    })
+  </script>
 </body>
 
 </html>

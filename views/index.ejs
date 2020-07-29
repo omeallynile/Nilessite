@@ -13,14 +13,14 @@
 
 <body class="body">
 
-  <div id="swup" class="main animsition">
+  <div id="main" class="main">
 
     <div id="" class="main__toggle">
       <p class="main__toggle__icon">
         <i class="fa fa-moon-o main__toggle__button" aria-hidden="true"></i></p>
     </div>
     <div id="main__name" class="main__name">
-      <h1 class="main__name__name">Nile O'Meally</h1>
+      <h1 id="main__name__name" class="main__name__name">Nile O'Meally</h1>
       <!-- Change location  -->
       <h3 class="main__name__location"><i class="fa fa-map-marker" aria-hidden="true" style="color: red"></i> Melbourne,
         Australia
@@ -29,10 +29,10 @@
     <div id="main__menu" class="main__menu">
       <div id="main__menu__items" class="main__menu__items animsition">
         <a class="animsition-fade" href="./work">
-          <h2 class="main__menu__item ">work</h2>
+          <h2 id="main__menu__item1" class="main__menu__item ">work</h2>
         </a>
         <a href="./personal">
-          <h2 class="main__menu__item ">personal</h2>
+          <h2 id="main__menu__item2" class="main__menu__item ">personal</h2>
         </a>
       </div>
     </div>
@@ -41,20 +41,26 @@
     </div>
     <div id="footer" class="main__footer">
       <div id="footer__text" class="main__footer">
-        <p>Developed by <a href="#" style="text-decoration:none; color:black;">Alex Harvey</a></p>
+        <p>Developed by <a href="#" class="footer__devname" style="text-decoration:none">Alex Harvey</a>
+        </p>
       </div>
     </div>
   </div>
   <script>
     // Select the button
     const btn = document.querySelector('.main__toggle__button');
-
     // Listen for a click on the button
     btn.addEventListener('click', function () {
+      // change moon to sun
+      btn.classList.toggle('fa-moon-o')
+      btn.classList.toggle('fa-sun-o')
       // Then toggle (add/remove) the .dark-theme class to the body
       document.body.classList.toggle('dark-mode');
       // toggle darkmode on main-content
-      document.getElementsById('.main').classList.toggle('dark-mode');
+      const main = document.querySelector('.main')
+      main.classList.toggle('dark-mode');
+      const a = document.querySelectorAll('a')
+      a.forEach(item => item.classList.toggle('dark-mode'))
     })
   </script>
 </body>

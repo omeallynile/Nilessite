@@ -3,16 +3,17 @@
   box-sizing: border-box;
   font-family: 'Helvetica, Arial, Sans Serif';
   font-size: 10px;
-  /* border: 1px solid red; */
 }
 
 body {
   margin: 0;
   /* overflow: hidden; */
+  color: black;
 }
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 div {
@@ -90,9 +91,6 @@ html.is-animating .transition--swipe {
 
 /* Header */
 
-.main__toggle__button {
-}
-
 .main__toggle {
   grid-area: toggle;
   justify-self: start;
@@ -113,7 +111,7 @@ html.is-animating .transition--swipe {
 }
 
 .main__name__name {
-  color: black;
+  /* color: black; */
   font-size: 6rem;
   font-weight: normal;
   padding: 0;
@@ -133,16 +131,11 @@ html.is-animating .transition--swipe {
   scrollbar-width: none;
 }
 
-.main__menu__items {
-  overflow-y: scroll;
-}
-
 .main__menu__item {
   position: relative;
   font-size: 4rem;
   font-weight: normal;
   padding: 0.5rem 0 0.5rem 0;
-  color: black;
 }
 
 .main__menu__item:hover {
