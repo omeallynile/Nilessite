@@ -24,6 +24,7 @@ div {
 :root {
   --blur: rgba(0, 0, 0, 0.4);
   --purple: #7000ff;
+  --dark: #181a1b;
 }
 
 /* Animations */
@@ -61,6 +62,15 @@ html.is-animating .transition--swipe {
 
 /* Main */
 
+.dark-mode {
+  background-color: var(--dark);
+  color: white !important;
+}
+
+.dark-mode-main {
+  color: white !important;
+}
+
 .main {
   display: grid;
   max-width: 80vw;
@@ -80,9 +90,11 @@ html.is-animating .transition--swipe {
 
 /* Header */
 
+.main__toggle__button {
+}
+
 .main__toggle {
   grid-area: toggle;
-
   justify-self: start;
   align-self: center;
 }
@@ -163,6 +175,7 @@ html.is-animating .transition--swipe {
   z-index: 11;
   /* height: 5rem; */
   width: 100%;
+
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   position: sticky;

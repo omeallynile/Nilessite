@@ -17,7 +17,7 @@
 
     <div id="" class="main__toggle">
       <p class="main__toggle__icon">
-        <i class="fa fa-moon-o" aria-hidden="true"></i></p>
+        <i class="fa fa-moon-o main__toggle__button" aria-hidden="true"></i></p>
     </div>
     <div id="main__name" class="main__name">
       <h1 class="main__name__name">Nile O'Meally</h1>
@@ -41,35 +41,21 @@
     </div>
     <div id="footer" class="main__footer">
       <div id="footer__text" class="main__footer">
-        <h1>I am the footer</h1>
+        <p>Developed by <a href="#" style="text-decoration:none; color:black;">Alex Harvey</a></p>
       </div>
     </div>
   </div>
   <script>
-    $(document).ready(function () {
-      $(".animsition").animsition({
-        inClass: 'fade-in',
-        outClass: 'fade-out',
-        inDuration: 1500,
-        outDuration: 800,
-        linkElement: '.animsition-link',
-        // e.g. linkElement: 'a:not([target="_blank"]):not([href^="#"])'
-        loading: true,
-        loadingParentElement: 'body', //animsition wrapper element
-        loadingClass: 'animsition-loading',
-        loadingInner: '', // e.g '<img src="loading.svg" />'
-        timeout: false,
-        timeoutCountdown: 5000,
-        onLoadEvent: true,
-        browser: ['animation-duration', '-webkit-animation-duration'],
-        // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
-        // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
-        overlay: false,
-        overlayClass: 'animsition-overlay-slide',
-        overlayParentElement: 'body',
-        transition: function (url) { window.location.href = url; }
-      });
-    });
+    // Select the button
+    const btn = document.querySelector('.main__toggle__button');
+
+    // Listen for a click on the button
+    btn.addEventListener('click', function () {
+      // Then toggle (add/remove) the .dark-theme class to the body
+      document.body.classList.toggle('dark-mode');
+      // toggle darkmode on main-content
+      document.getElementsById('.main').classList.toggle('dark-mode');
+    })
   </script>
 </body>
 

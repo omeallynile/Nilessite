@@ -14,6 +14,8 @@
 
 ## Make into an express server
 
-- [] Make routes
-- [] map links to routes
+- [x] Make routes
+- [x] map links to routes
 - []
+
+- [] Dark Mode: change image, change font color, change
