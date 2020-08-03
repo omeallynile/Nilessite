@@ -183,7 +183,7 @@
       'name   toggle'
       'cont   cont'
       'footer footer';
-    max-height: 100vh;
+    max-height: 125vh;
   }
 
   .main__name {

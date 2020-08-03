@@ -68,8 +68,13 @@ html.is-animating .transition--swipe {
   color: white !important;
 }
 
-.dark-mode-main {
+.darkmode-home-mobile {
+  background-color: rgba(0, 0, 0, 0);
   color: white !important;
+}
+
+.darken-image {
+  filter: brightness(0.3) !important;
 }
 
 .main {

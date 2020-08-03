@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <div class="bgimage">
+  <div id="bgimage" class="bgimage">
 
   </div>
   <div class="main">
@@ -73,25 +73,7 @@
       </div>
     </div>
   </div>
-  <script>
-    // Select the button
-    const btn = document.querySelector('.main__toggle__button');
-    // Listen for a click on the button
-    btn.addEventListener('click', function () {
-      // change moon to sun
-      btn.classList.toggle('fa-moon-o')
-      btn.classList.toggle('fa-sun-o')
-      // Then toggle (add/remove) the .dark-theme class to the body
-      document.body.classList.toggle('dark-mode');
-      // toggle darkmode on main-content
-      const main = document.querySelector('.main')
-      main.classList.toggle('dark-mode');
-      const a = document.querySelectorAll('a')
-      a.forEach(item => item.classList.toggle('dark-mode'))
-      const h2 = document.querySelectorAll('h2')
-      h2.forEach(h2 => h2.classList.toggle('dark-mode'))
-    })
-  </script>
+  <script type="text/javascript" src="/js/darkmode.js"></script>
 </body>
 
 </html>
