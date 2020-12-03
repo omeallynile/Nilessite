@@ -22,10 +22,9 @@
   grid-area: cont;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 0.5fr 3fr;
+  grid-template-rows: auto 3fr;
   grid-template-areas:
     'nav'
-    'cont'
     'menu';
 }
 
